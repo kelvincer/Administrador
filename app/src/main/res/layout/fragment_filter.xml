@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/id_user_etx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID User" />
+
+        <EditText
+            android:id="@+id/movement_etx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Movimiento" />
+
+        <EditText
+            android:id="@+id/id_sede_etx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID Sede" />
+
+        <EditText
+            android:id="@+id/state_etx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Estado" />
+
+        <EditText
+            android:id="@+id/category_etx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Categoría" />
+
+        <Button
+            android:id="@+id/search_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/filter_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"/>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
