@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 import com.idigital.administrador.fragment.AttendanceFragment;
 import com.idigital.administrador.fragment.FilterFragment;
-import com.idigital.administrador.fragment.FragmentTab;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("name", "Tab 2");
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab2").setIndicator("Tab 2", null),
-                FragmentTab.class, bundle);
+                AttendanceFragment.class, bundle);
         bundle = new Bundle();
         bundle.putString("name", "Tab 3");
         mTabHost.addTab(

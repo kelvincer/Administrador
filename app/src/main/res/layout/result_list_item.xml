@@ -2,12 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:layout_marginEnd="10dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginBottom="2dp"
+    android:layout_marginTop="2dp"
     android:background="@android:color/darker_gray"
     android:orientation="vertical">
 
@@ -32,7 +28,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fecha: "
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/date_txv"
@@ -60,7 +57,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Estado: "
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/state_txv"
@@ -85,7 +83,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Movimiento: "
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/movement_txv"
@@ -104,7 +103,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Category: "
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/category_txv"
