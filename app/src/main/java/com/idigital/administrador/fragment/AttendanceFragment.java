@@ -40,6 +40,8 @@ public class AttendanceFragment extends Fragment implements SwipeRefreshLayout.O
     private Unbinder unbinder;
     AttendanceRecyclerAdapter recyclerAdapter;
     boolean onInitLoad;
+    TestConnectionAndFetchAttendanceAsyncTask task;
+    Call<AllAtendanceResponse> call;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,28 +55,32 @@ public class AttendanceFragment extends Fragment implements SwipeRefreshLayout.O
         unbinder = ButterKnife.bind(this, v);
         setUpViews();
 
-        new TestConnectionAndFetchAttendanceAsyncTask().execute();
+        task = (TestConnectionAndFetchAttendanceAsyncTask) new TestConnectionAndFetchAttendanceAsyncTask().execute();
         return v;
     }
 
     @Override
     public void onRefresh() {
-        new TestConnectionAndFetchAttendanceAsyncTask().execute();
+        task = (TestConnectionAndFetchAttendanceAsyncTask) new TestConnectionAndFetchAttendanceAsyncTask().execute();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+        task.cancel(true);
+        if(call != null)
+            call.cancel();
     }
 
     private void fetchData() {
 
         IDigitalService service = IDigitalClient.getIDigitalService();
-        Call<AllAtendanceResponse> call = service.getAllAtendance();
+        call = service.getAllAtendance();
         call.enqueue(new Callback<AllAtendanceResponse>() {
             @Override
             public void onResponse(Call<AllAtendanceResponse> call, Response<AllAtendanceResponse> response) {
+
                 if (response.isSuccessful()) {
 
                     Log.i(TAG, "correct");
@@ -88,12 +94,17 @@ public class AttendanceFragment extends Fragment implements SwipeRefreshLayout.O
                     Toast.makeText(getContext(), "Error loading data", Toast.LENGTH_SHORT);
                 }
                 swipeLayout.setRefreshing(false);
+
+                Log.i(TAG, response.raw().toString());
             }
 
             @Override
             public void onFailure(Call<AllAtendanceResponse> call, Throwable t) {
                 Log.i(TAG, "failure");
-                swipeLayout.setRefreshing(false);
+                if (!call.isCanceled()) {
+                    swipeLayout.setRefreshing(false);
+                } else
+                    Toast.makeText(getContext(), "Call canceled", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -125,13 +136,15 @@ public class AttendanceFragment extends Fragment implements SwipeRefreshLayout.O
         @Override
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
-            if (!aBoolean) {
-                if (swipeLayout.isRefreshing())
-                    swipeLayout.setRefreshing(false);
-                Toast.makeText(getContext(), getResources().getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
-                return;
-            } else
-                fetchData();
+            if (!isCancelled()) {
+                if (!aBoolean) {
+                    if (swipeLayout.isRefreshing())
+                        swipeLayout.setRefreshing(false);
+                    Toast.makeText(getContext(), getResources().getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
+                    return;
+                } else
+                    fetchData();
+            }
         }
     }
 

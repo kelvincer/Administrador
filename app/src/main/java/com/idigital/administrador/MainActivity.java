@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.idigital.administrador.fragment.AttendanceFragment;
+import com.idigital.administrador.fragment.EmpleadorFragment;
 import com.idigital.administrador.fragment.FilterFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,20 +20,14 @@ public class MainActivity extends AppCompatActivity {
         mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
 
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "Tab 1");
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab1").setIndicator("Tab 1", null),
-                AttendanceFragment.class, bundle);
-        bundle = new Bundle();
-        bundle.putString("name", "Tab 2");
+                AttendanceFragment.class, null);
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab2").setIndicator("Tab 2", null),
-                AttendanceFragment.class, bundle);
-        bundle = new Bundle();
-        bundle.putString("name", "Tab 3");
+                EmpleadorFragment.class, null);
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab3").setIndicator("Tab 3", null),
-                FilterFragment.class, bundle);
+                FilterFragment.class, null);
     }
 }

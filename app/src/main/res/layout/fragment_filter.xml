@@ -3,41 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/id_user_etx"
+        <Spinner
+            android:id="@+id/user_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ID User" />
+            android:spinnerMode="dropdown" />
 
-        <EditText
-            android:id="@+id/movement_etx"
+        <Spinner
+            android:id="@+id/sede_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Movimiento" />
+            android:spinnerMode="dialog" />
 
-        <EditText
-            android:id="@+id/id_sede_etx"
+        <Spinner
+            android:id="@+id/state_spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ID Sede" />
+            android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/state_etx"
+        <Spinner
+            android:id="@+id/category_spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Estado" />
-
-        <EditText
-            android:id="@+id/category_etx"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Categoría" />
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/search_btn"
@@ -49,7 +41,7 @@
             android:id="@+id/filter_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp" />
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

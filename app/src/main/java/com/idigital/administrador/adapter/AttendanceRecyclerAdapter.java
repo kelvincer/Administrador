@@ -50,7 +50,7 @@ public class AttendanceRecyclerAdapter extends RecyclerView.Adapter<AttendanceRe
         notifyDataSetChanged();
     }
 
-    public void clearData(){
+    public void clearData() {
         this.data.clear();
         notifyDataSetChanged();
     }
@@ -65,8 +65,6 @@ public class AttendanceRecyclerAdapter extends RecyclerView.Adapter<AttendanceRe
         TextView categoryTxv;
         @BindView(R.id.state_txv)
         TextView stateTxv;
-        @BindView(R.id.movement_txv)
-        TextView movementTxv;
         View view;
 
         public CustomViewHolder(View itemView) {
@@ -81,7 +79,6 @@ public class AttendanceRecyclerAdapter extends RecyclerView.Adapter<AttendanceRe
             dateTxv.setText(item.getDateShow());
             categoryTxv.setText(item.getCategory());
             stateTxv.setText(item.getState());
-            movementTxv.setText(item.getMovement());
         }
     }
 }

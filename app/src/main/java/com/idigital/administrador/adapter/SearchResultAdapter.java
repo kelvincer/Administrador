@@ -18,18 +18,18 @@ import butterknife.ButterKnife;
  * Created by USUARIO on 21/07/2017.
  */
 
-public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.CustomViewHolder> {
+public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.CustomViewHolder> {
 
     List<Result> data;
 
-    public ResultAdapter(List<Result> data) {
+    public SearchResultAdapter(List<Result> data) {
         this.data = data;
     }
 
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.result_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_list_item, parent, false);
         return new CustomViewHolder(view);
     }
 
@@ -53,8 +53,6 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.CustomView
         TextView categoryTxv;
         @BindView(R.id.state_txv)
         TextView stateTxv;
-        @BindView(R.id.movement_txv)
-        TextView movementTxv;
         View view;
 
         public CustomViewHolder(View itemView) {
@@ -69,7 +67,6 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.CustomView
             dateTxv.setText(item.getDateShow());
             categoryTxv.setText(item.getCategoria());
             stateTxv.setText(item.getState());
-            movementTxv.setText(item.getMovement());
         }
     }
 }
